@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo">Click the button to display todays day of the week.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<script type="text/javascript">
+function daysInMonth(month,year) {
+    return new Date(year, month, 0).getDate();
+}
+
+var currentDate = new Date();
+var thisMonth = currentDate.getMonth();
+var thisYear = currentDate.getFullYear();
+
+
+
+
+var monthStart = new Date(thisYear, thisMonth, 1);
+var startday = monthStart.getDay();
+console.log(startday);
+var monthEnd = new Date(thisYear, thisMonth + 1, 0);
+var monthLength = (monthEnd - monthStart) / (1000 * 60 * 60 * 24)
+console.log(monthStart);
+console.log(monthEnd);
+console.log(monthLength);
+
+function myFunction()
+{
+
+var b = [],
+weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+month = 7,
+year = 2000;
+
+for(var i=1,l=daysInMonth(thisMonth ,thisYear);i<l;i++){
+	var d = new Date(thisYear,thisMonth-1,i);
+	b.push(i+"."+weekday[d.getDay()]);
+}
+console.log(b);}//b is the desired array
+</script>
+
+</body>
+</html>

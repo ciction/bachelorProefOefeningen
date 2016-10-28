@@ -1,0 +1,74 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<!--<link rel="import" href="../bower_components/paper-slider/paper-slider.html">-->
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+
+<link rel="import" href="../bower_components/polymer-sortablejs/polymer-sortablejs.html"/>
+
+
+
+
+<link rel="import" href="shared-styles.html">
+
+<dom-module id="my-new-view">
+    <template>
+        <style include="shared-styles">
+            :host {
+                display: block;
+                padding: 10px;
+            }
+
+            paper-button.indigo {
+                background-color: var(--paper-indigo-500);
+                color: white;
+                --paper-button-raised-keyboard-focus: {
+                    background-color: var(--paper-pink-a200) !important;
+                    color: white !important;
+                };
+            }
+        </style>
+        <div class="card">
+            <h1>my-new-view</h1>
+        </div>
+
+
+        <paper-input label="this input requires some text" required auto-validate error-message="needs some text!"></paper-input>
+
+
+        <paper-card heading="Card Title">
+            <div class="card-content">Some content</div>
+            <div class="card-actions">
+                <paper-button  id="myBtn">Some action</paper-button>
+            </div>
+        </paper-card>
+
+        <!--<sortable-js>-->
+            <!--<template is="dom-repeat" items={{names}}>-->
+                <!--hello <div>{{item}}</div>-->
+            <!--</template>-->
+        <!--</sortable-js>-->
+
+        <template is="dom-repeat" items={{names}}>
+            <div>
+                <template is="dom-if" if="true">
+                    <span>hello</span>
+                </template>
+            </div>
+        </template>
+
+    </template>
+
+    <script>
+        Polymer({
+            is: 'my-new-view',
+            ready: function() {
+                this.names = [ 'bob', 'chris' ];
+                this.persons = [
+                    {first: 'Bob', last: 'Smith'},
+                    {first: 'Sally', last: 'Johnson'},
+                ];
+            }
+        });
+    </script>
+</dom-module>

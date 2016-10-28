@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.css' />
+
+    <script src="node_modules/fullcalendar/node_modules/jquery/dist/jquery.js"></script>
+    <script src="node_modules/fullcalendar/node_modules/moment/moment.js"></script>
+    <script src="node_modules/fullcalendar/dist/fullcalendar.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="_materialFullCalendar.scss">
+
+
+
+    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>-->
+    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>-->
+
+
+    </head>
+<body>
+<div id='calendar'></div>
+</body>
+
+<script>
+    $(document).ready(function() {
+        // page is ready
+        $('#calendar').fullCalendar({
+            // calendar properties
+
+            editable: true, //event dragging & resizing
+            handleWindowResize: true,
+            weekends: false, // Hide weekends
+            defaultView: 'agendaWeek', // Only show week view
+            header: true, // Hide buttons/titles
+            minTime: '07:30:00', // Start time for the calendar
+            maxTime: '22:00:00', // End time for the calendar
+            columnFormat: {
+                week: 'ddd' // Only show day of the week names
+            },
+            displayEventTime: true, // Display event time
+
+//            // emphasizes business hours
+            businessHours: true,
+            events: [
+                // all day event
+                {
+                    title  : 'Meeting',
+                    start  : '2016-10-26'
+                },
+                // long-term event
+                {
+                    title  : 'Conference',
+                    start  : '2016-10-28',
+                    end    : '2016-10-30'
+                },
+                // short term event
+                {
+                    title  : 'Dentist',
+                    start  : '2016-10-28T11:30:00',
+                    end  : '2016-10-28T012:30:00',
+                    allDay : false // will make the time show
+                }
+            ],
+//            // header
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
+        })
+    });
+</script>
+</html>
