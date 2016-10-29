@@ -1,0 +1,5 @@
+iterate over properties (json array) with
+
+<template is="dom-repeat" items="{{contacts}}">
+	<h3>item.name</h3>
+</template>

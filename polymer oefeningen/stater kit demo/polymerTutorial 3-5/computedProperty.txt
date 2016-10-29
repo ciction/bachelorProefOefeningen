@@ -1,0 +1,6 @@
+computed: 'Babla(param,param)'
+
+
+Babla: function(param,param){
+	return .....
+}

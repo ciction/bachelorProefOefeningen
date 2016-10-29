@@ -1,0 +1,67 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="contact-listing.html">
+
+
+<dom-module id="contact-list">
+    <template>
+        <style>
+            :host {
+                display: block;
+            }
+            h1{
+                color: blue;
+            }
+            ul{
+                list-style: none;
+            }
+            li + li  {
+                border-top: solid 1px #666;
+            }
+        </style>
+
+
+        <ul>
+            <!--template for iterating data-->
+            <template is="dom-repeat" items="{{contacts}}">
+                <li>
+                    <contact-listing name="{{item.name}}" image="{{item.image}}" email="{{item.email}}"></contact-listing>
+                </li>
+            </template>
+        </ul>
+        
+    </template>
+    <script>
+        Polymer({
+            is: 'contact-list',
+
+            properties: {
+            },
+
+            ready: function(){
+                this.contacts = [
+                    {
+                        name: "Scott",
+                        email: "scott@gmail.oom",
+                        image: "http://www2.mmu.ac.uk/media/mmuacuk/content/images/health-professions/student-profile-simone-bianchi-piantini.jpg"
+                    },
+                    {
+                        name: "Jess",
+                        email: "Jess@gmail.oom",
+                        image: "http://blogs.cuit.columbia.edu/asj2122/files/2013/07/profile.jpg"
+                    },
+                    {
+                        name: "Tim",
+                        email: "Tim@gmail.oom",
+                        image: "http://www.christopherxjjensen.com/wp-content/gallery/profile-pics/Profile-Pic_2014-09-07_1000px.jpg"
+                    },
+                    {
+                        name: "Josh",
+                        email: "Josh@gmail.oom",
+                        image: "http://schoolsweek.co.uk/wp-content/uploads/2016/09/James-Townsend-profile-main-400px-300x300.jpg"
+                    }
+                ]
+            }
+
+        });
+    </script>
+</dom-module>

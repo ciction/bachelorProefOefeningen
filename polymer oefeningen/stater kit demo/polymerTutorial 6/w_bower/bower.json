@@ -1,0 +1,21 @@
+{
+  "name": "w_bower",
+  "homepage": "https://github.com/ciction/bachelorProefOefeningen",
+  "authors": [
+    "Swolfs <cswolfs@vub.ac.be>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.7.0",
+    "google-map": "GoogleWebComponents/google-map#^1.1.14"
+  }
+}
