@@ -6,10 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
         <link href="css/style.css" rel="stylesheet">
+
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
         <link rel="import" href="bower_components/webcomponentsjs/webcomponents.js">
         <link rel="import" href="bower_components/paper-card/paper-card.html">
         <link rel="import" href="bower_components/font-roboto/roboto.html">
-    </head>
+        <link rel="import" href="content-stylewrapper.html">
+        <link rel="import" href="bower_components/paper-date-picker/paper-date-picker.html">
+        <link rel="import" href="bower_components/paper-dialog/paper-dialog.html">
+        <link rel="import" href="bower_components/paper-button/paper-button.html">
 
     <style is="custom-style">
         body{
@@ -25,7 +31,30 @@
     </style>
 
     <body>
-        Hello world
+
+    <paper-button raised onclick="dialog.open()">plain dialog</paper-button>
+
+    <paper-dialog id="dialog" class="paper-date-picker-dialog" modal
+                  on-iron-overlay-closed="dismissDialog">
+        <paper-date-picker id="picker"></paper-date-picker>
+        <div class="buttons">
+            <paper-button dialog-dismiss>Cancel</paper-button>
+            <paper-button dialog-confirm>OK</paper-button>
+        </div>
+    </paper-dialog>
+
+    <div>
+        <!--<paper-date-picker></paper-date-picker>-->
+
+    </div>
+    <br>
+    <div>
+
+        <content-stylewrapper>
+            Hello world
+        </content-stylewrapper>
+    </div>
+
         <br>
         <paper-card heading="Card Title">
             <div class="card-content">Some content</div>
@@ -35,4 +64,40 @@
         </paper-card>
     
     </body>
+
+<script>
+    const HOUR_IN_MILLISECONDS = (1000 * 60 * 60);
+    const DAY_IN_MILLISECONDS = (1000 * 60 * 60 * 24);
+    const WORKWEEK_IN_MILLISECONDS = (1000 * 60 * 60 * 24 * 5);
+    const WEEK_IN_MILLISECONDS = (1000 * 60 * 60 * 24 * 7);
+
+
+
+    $(function () {
+        var today = new Date();
+        var nextweek = AddTimeToDate(today, WEEK_IN_MILLISECONDS);
+        var nextMonth = addMonthsUTC(today, 1);
+
+        console.log("nextMonth: " + nextMonth);
+        console.log("hello");
+
+       $("#picker").attr("date",nextweek);
+    });
+
+    function AddTimeToDate(inputDate, milliseconds) {
+        return new Date( inputDate.getTime() + milliseconds);
+    }
+
+    function addMonthsUTC (date, count) {
+        if (date && count) {
+            var m, d = (date = new Date(+date)).getUTCDate()
+
+            date.setUTCMonth(date.getUTCMonth() + count, 1)
+            m = date.getUTCMonth()
+            date.setUTCDate(d)
+            if (date.getUTCMonth() !== m) date.setUTCDate(0)
+        }
+        return date;
+    }
+</script>
 </html>

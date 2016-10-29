@@ -1,0 +1,28 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="content-stylewrapper">
+    <template>
+        <style>
+            :host {
+                background-color: red;
+                display: inline-block;
+                padding: 15px;
+                border-radius: 50%;
+            }
+            div{
+            }
+        </style>
+
+        <div>
+            <content>
+            </content>
+        </div>
+
+
+
+    </template>
+    <script>
+        Polymer({
+            is: 'content-stylewrapper'
+        });
+    </script>
+</dom-module>
