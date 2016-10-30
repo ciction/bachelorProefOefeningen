@@ -1,0 +1,63 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/iron-icons/editor-icons.html">
+<link rel="import" href="bower_components/polymer-sortablejs/polymer-sortablejs.html"/>
+
+
+<dom-module id="sortable-wrapper">
+    <template>
+        <style>
+            :host {
+                display: block;
+                width: 500px;
+
+            }
+            sortable-js{
+
+            }
+            .truncate {
+                width: 100px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                padding-left: 16px;
+            }
+        </style>
+
+
+        <!--<paper-icon-button noink icon="find-in-page" title="find"></paper-icon-button>-->
+
+        <sortable-js class="list" handle=".handle"  animation="150"  draggable=".draggable" filter=".remove" >
+                <!--<template id="testSort" is="dom-repeat" items="{{employees}}" draggable="false" disabled>-->
+                    <!--<paper-item>{{item.first}}</paper-item>-->
+                <!--</template>-->
+            <div class="draggable truncate"><iron-icon icon="editor:drag-handle" class="handle" ></iron-icon>jos dsdsgsg dsgdsgsd</div>
+            <paper-item class="draggable remove"><iron-icon icon="editor:drag-handle" class="handle"></iron-icon>raf</paper-item>
+            <paper-item class="draggable"><iron-icon icon="editor:drag-handle" class="handle"></iron-icon>chris</paper-item>
+            <paper-item class="draggable"><iron-icon icon="editor:drag-handle" class="handle"></iron-icon>jan</paper-item>
+        </sortable-js>
+
+
+        <!--<div> Employee list: </div>-->
+        <!--<template is="dom-repeat" items="{{employees}}">-->
+            <!--<div># <span>{{index}}</span></div>-->
+            <!--<div>First name: <span>{{item.first}}</span></div>-->
+            <!--<div>Last name: <span>{{item.last}}</span></div>-->
+        <!--</template>-->
+
+    </template>
+    <script>
+        Polymer({
+            is: 'sortable-wrapper',
+            properties:{
+                group: String
+            },
+            ready: function() {
+                this.employees = [
+                    {first: 'Bob', last: 'Smith'},
+                    {first: 'Sally', last: 'Johnson'}
+                ];
+//                this.title= "title";
+            }
+        });
+    </script>
+</dom-module>

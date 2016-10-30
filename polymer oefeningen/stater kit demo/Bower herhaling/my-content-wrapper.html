@@ -1,0 +1,32 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+<dom-module id="my-content-wrapper">
+    <template>
+        <style>
+            :host {
+                color: darkgray;
+            }
+        </style>
+
+        <content class=".content">
+        </content>
+        {{textContent}}
+
+    </template>
+
+
+    <script>
+        Polymer({
+            is        : 'my-content-wrapper',
+            properties: {},
+            ready     : function () {
+                this.textContent = 'Hello World, I am a Custom Element!';
+            },
+            changetext: function(txt){
+                this.textContent = txt;
+            }
+
+        });
+    </script>
+
+
+</dom-module>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Call Function</title>
+    <link rel="import" href="bower_components/webcomponentsjs/webcomponents.js">
+    <link rel="import" href="my-function-component.html">
+</head>
+<body>
+
+    <my-function-component></my-function-component>
+
+    <script>
+        window.addEventListener("", function(){
+            var function_component = document.querySelector("my-function-component");
+            function_component.data = [];
+            function_component.shoveData();
+        });
+
+        window.addEventListener('WebComponentsReady', function(e) {
+            alert("ready");
+
+        });
+    </script>
+
+</body>
+</html>
